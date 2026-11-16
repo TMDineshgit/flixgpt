@@ -14,3 +14,19 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+
+## Neflix-GPT
+
+# Freatures.
+    1. Login
+    2.Singup
+    3. Landing page (after Login)
+        - Header
+        - Banner with trailer
+        - Movie Suggestion
+        - Movie listing with 
+    4. filxgpt
+        - search bar
+        - movie suggestions
