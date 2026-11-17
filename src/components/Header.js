@@ -1,10 +1,52 @@
+import { useAuth } from "../context/AuthContext";  
+
 const Header = () => {
+
+    const { user, logout } = useAuth();
+    
+    const handleLogout = async () => {
+        try {
+            await logout();
+        } catch (error) {
+            console.error("Logout failed:", error);
+        }
+    };
+
     return(
-        <header className="px-3 py-2 flex items-center justify-between bg-gradient-b from-black">
-            <div id="logo">
-                <img className="max-w-[150px] h-auto" src="https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAT4DsJqpLaLn4NdWj0hMqiS44NBBHsef6fJbMCXfInwFPyWRZWORRKIX6OoMypwFbV-skx1kkO0bw5qyPw4TGYECuHYwI_zw-n7CzjzEILCnaUNLQfmgkh-p1HzjExVEw9zDBrZd_di2.svg" alt="logo" />
-            </div>
-        </header>
+        
+      <header className="flex items-center justify-between border-b border-gray-800 px-8 py-5">
+
+        <h1 className="text-2xl font-bold text-red-500">
+          My App
+        </h1>
+
+        <div className="flex items-center gap-4">
+
+          <div className="flex items-center gap-3">
+
+  
+            <img src={user?.photoURL || "https://placehold.co/150x150?text=User"}
+                alt="Profile"
+                className="h-10 w-10 rounded-full object-cover"
+            />
+
+
+            <span className="font-medium">
+              {user?.displayName}
+            </span>
+
+          </div>
+
+          <button
+            onClick={handleLogout}
+            className="rounded-md bg-red-600 px-5 py-2 hover:bg-red-700"
+          >
+            Logout (fGPT@123)
+          </button>
+
+        </div>
+      </header>
+
     )
 }
 
