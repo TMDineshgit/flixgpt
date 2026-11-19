@@ -14,7 +14,7 @@ const Header = () => {
 
     return(
         
-      <header className="flex items-center justify-between px-10 py-5 fixed top-0 left-0 right-0 z-50 bg-linear-to-t bg-black/50 min-h-[80px]">
+      <header className="flex items-center justify-between px-10 py-5 fixed top-0 left-0 right-0 z-50 bg-grdient-to-b from-black min-h-[80px]">
 
         <h1 className="text-2xl font-bold text-red-500">
           My App
