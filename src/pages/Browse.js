@@ -1,23 +1,37 @@
 
-import { useAuth } from "../context/AuthContext";
-import Header from "../components/Header";
+//import { useAuth } from "../context/AuthContext";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { API_OPTIONS } from "../utils/constants";
+import { listNowPlayingMovies } from "../store/slices/movieSlice";
+import BrowseMainWrapper from "../components/BrowseMainWrapper";
 
 const Browse = () => {
-  const { user } = useAuth();
+  //const { user } = useAuth();
+  const dispatch = useDispatch();
+
+  const getNowPlayingMovies = async() =>{
+        try {
+          const data = await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', API_OPTIONS);
+          const json = await data.json();
+          //console.log(json.results);
+          dispatch(listNowPlayingMovies(json.results));
+        } catch (err) {
+          console.error(err);
+        }
+  }
+
+  useEffect(() => {
+
+    getNowPlayingMovies()
+
+  },[])
+
+  //const 
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      <Header />
-      <main className="p-10">
-        <h2 className="text-3xl font-bold">
-          Welcome, {user?.displayName}!
-        </h2>
-
-        <p className="mt-3 text-gray-400">
-          You have successfully logged in.
-        </p>
-      </main>
-
+      <BrowseMainWrapper />
     </div>
   );
 };

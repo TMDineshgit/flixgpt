@@ -4,11 +4,15 @@ import { Routes, Route, Navigate } from "react-router";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Browse from "./pages/Browse";
+import Header from "./components/Header"
+
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
+    <>
+    <Header />
     <Routes>
 
       {/* Public routes */}
@@ -26,6 +30,7 @@ const App = () => {
       <Route path="*" element={<Navigate to="/browse" replace />} />
 
     </Routes>
+    </>
   );
 };
 

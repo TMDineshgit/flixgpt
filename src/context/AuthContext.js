@@ -20,6 +20,7 @@ export const AuthProvider = ({ children }) => {
   // Monitor Firebase authentication state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      //console.log("auth cr state", currentUser)
       setUser(currentUser);
       setLoading(false);
     });
