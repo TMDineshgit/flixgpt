@@ -17,7 +17,7 @@ const BannerBackground = ({movieId}) =>{
             //console.log(json)
             const bgTrailerList = json.results.filter((video) => video.type === "Trailer")
             const bgTrailer = bgTrailerList.length ? bgTrailerList[0] : json.results[0]
-            console.log(bgTrailer)
+            //console.log(bgTrailer)
             dispatch(getBgTrailerId(bgTrailer))
         }
         catch(err){  
@@ -34,7 +34,7 @@ const BannerBackground = ({movieId}) =>{
     return(
         <div>
             <iframe className="w-full aspect-video" 
-            src={"https://www.youtube.com/embed/"+trailerId?.key+"?autoplay=1&mute=1&controls=0&loop=1"}
+            src={"https://www.youtube.com/embed/"+trailerId?.key+"?autoplay=1&loop=1&mute=1&controls=0"}
             title="YouTube video player" 
             referrerPolicy="strict-origin-when-cross-origin"></iframe>
         </div>
@@ -42,7 +42,7 @@ const BannerBackground = ({movieId}) =>{
 }
 const BannerMovieTitle = ({title, overview}) =>{
     return(
-        <div className="bg-gradient-to-r from-black aspect-video absolute w-full h-full top-0 left-0 z-[5]">
+        <div className="bg-linear-to-r from-black aspect-video absolute w-full h-full top-0 left-0 z-5">
             <div className="title_wrapper max-w-4/12 px-10 py-10 z-10 absolute top-6/12 -translate-y-6/12 ">
                 <h1 className="text-3xl font-bold mb-2 text-white">{title}</h1>
                 <p className="text-md font-normal text-gray-300 mb-8">{overview}</p>

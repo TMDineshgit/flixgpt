@@ -14,12 +14,12 @@ const Header = () => {
 
     return(
         
-      <header className="flex items-center justify-between px-10 py-5 fixed top-0 left-0 right-0 z-50 bg-grdient-to-b from-black min-h-[80px]">
+      <header className="flex items-center justify-between px-10 py-5 fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black min-h-[80px]">
 
         <h1 className="text-2xl font-bold text-red-500">
           My App
         </h1>
-
+      {user &&
         <div className="flex items-center gap-4">
 
           <div className="flex items-center gap-3">
@@ -30,7 +30,7 @@ const Header = () => {
                 className="h-10 w-10 rounded-full object-cover"
             />
 
-
+          
             <span className="font-medium">
               {user?.displayName}
             </span>
@@ -43,8 +43,9 @@ const Header = () => {
           >
             Logout (fGPT@123)
           </button>
-
+       
         </div>
+        }
       </header>
 
     )
