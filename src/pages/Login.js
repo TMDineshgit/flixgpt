@@ -36,9 +36,10 @@ const Login = () => {
 
       navigate("/browse", { replace: true });
 
-    } catch (error) {
+    } catch (err) {
       setErrors({
-        firebase: "Invalid email or password",
+        firebase: "Invalid email or password"
+       
       });
     } finally {
       setLoading(false);
